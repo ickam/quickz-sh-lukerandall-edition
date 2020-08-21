@@ -177,12 +177,7 @@ dict() {
 
 # Find geo info from IP
 ipgeo() {
-    # Specify ip or your ip will be used
-    if [ "$1" ]; then
-        curl "http://api.db-ip.com/v2/free/$1"
-    else
-        curl "http://api.db-ip.com/v2/free/$(myip)"
-    fi
+curl "http://ipinfo.io/"
 }
 
 # Show covid-19 spread stats
