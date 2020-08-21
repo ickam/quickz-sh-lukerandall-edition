@@ -54,7 +54,7 @@ You can also manually install Nerd Fonts of your choice.
 
 * All oh-my-zsh plugins are installed under ~/.oh-my-zsh, Other tools (fzf,marker,todo) are installed in ~/.quickzsh
 
-* The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by editing POWERLEVEL9K settings in .zshrc (from line ~15)
+
 
 
 Suggestions about more cool tools are always welcome :)
