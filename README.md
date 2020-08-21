@@ -1,7 +1,7 @@
-# quickz-sh
-A simple script to setup an awesome shell environment.
+# quickz-sh-lukerandall-edition
+A simple script to setup an awesome shell environment. I made a single change to @jotyGill code, replacing the zsh theme with lukerandall one, because I find it cleaner and easier on the eyes
 Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
-* powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
+* lukerandall theme (https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/lukerandall.zsh-theme)
 * Nerd-Fonts (https://github.com/ryanoasis/nerd-fonts)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
 * zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
@@ -27,13 +27,8 @@ Sets following useful aliases:
 
 ## Demo
 
-Currently the command prompt looks like this (easily customize it in zshrc)
-![prompt](https://user-images.githubusercontent.com/8462091/43674765-8bb13a76-9817-11e8-8b7b-16b8b1998408.png)
-user :  directory  :  git stats : last command exit code : ip : todo tasks : free memory: load : time
+Currently the command prompt looks like this (easily customize it in zshrc) https://cl.ly/f701d00760f8059e06dc
 
-Watch this to get an idea of what your Shell (well, life!) could be like!!
-
-[![asciicast](https://asciinema.org/a/225226.svg)](https://asciinema.org/a/225226)
 
 
 ## Installation
