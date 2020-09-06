@@ -70,7 +70,6 @@ plugins=(
     screen
     systemd
     web-search
-    k
     # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
     zsh-syntax-highlighting
     )
