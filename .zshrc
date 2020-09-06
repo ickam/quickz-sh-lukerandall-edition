@@ -134,7 +134,8 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
 alias x="exit"
-alias k="k -h"						# show human readable filesizes, in kb, mb etc
+alias 1to100='echo $(( ( RANDOM % 100 ) + 1 ))' #pseudo-random number between 1 and 100
+alias 1to4='echo $(( ( RANDOM % 4 ) + 1 ))' #pseudo-random between 1 and 100
 
 
 # CUSTOM FUNCTIONS
