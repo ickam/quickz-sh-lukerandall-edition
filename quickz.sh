@@ -61,12 +61,6 @@ else
     ~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
 fi
 
-if [ -d ~/.oh-my-zsh/custom/plugins/k ]; then
-    cd ~/.oh-my-zsh/custom/plugins/k && git pull
-else
-    git clone --depth 1 https://github.com/supercrabtree/k ~/.oh-my-zsh/custom/plugins/k
-fi
-
 if [ -d ~/.quickzsh/marker ]; then
     cd ~/.quickzsh/marker && git pull
 else
