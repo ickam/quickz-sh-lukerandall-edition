@@ -8,7 +8,6 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * zsh-syntax-highlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
 * history-substring-search (https://github.com/zsh-users/zsh-history-substring-search)
 * fzf (https://github.com/junegunn/fzf)
-* k (https://github.com/supercrabtree/k)
 * marker (https://github.com/pindexis/marker)
 * todotxt (https://github.com/todotxt/todo.txt-cli)
 
@@ -37,7 +36,7 @@ Requirements:
 * `python3` or `python` is required to run option '-c' which copies history from .bash_history
 
 ``` bash
-git clone https://github.com/jotyGill/quickz-sh.git
+git clone https://github.com/ickam/quickz-sh.git
 cd quickz-sh
 ./quickz.sh -c        # only run with '-c' the first time, running multiple times will duplicate history entries
 ```
