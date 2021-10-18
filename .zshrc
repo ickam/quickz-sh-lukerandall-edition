@@ -189,10 +189,9 @@ corona() {
 }
 
 rand100() {
-curl https://www.random.org/integers/\?num\=1\&min\=1\&max\=100\&col\=1\&base\=$
-
+curl https://www.random.org/integers/\?num\=1\&min\=1\&max\=100\&col\=1\&base\=10\&format\=plain\&rnd\=new &&
 }
 
 rand4() {
-curl  https://www.random.org/integers/\?num\=1\&min\=1\&max\=4\&col\=1\&base\=$
+curl  https://www.random.org/integers/\?num\=10\&min\=1\&max\=4\&col\=1\&base\=10\&format\=plain\&rnd\=new
 }
