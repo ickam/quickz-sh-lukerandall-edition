@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if command -v zsh &> /dev/null && command -v git &> /dev/null && command -v wget &> /dev/null; then
-    echo -e "ZSH and Git are already installed\n"
+if command -v zsh &> /dev/null && command -v git &> /dev/null && command -v wget &> /dev/null && command -v xclip &> /dev/null ; then
+    echo -e "ZSH and Git and xclip are already installed\n"
 else
-    if sudo apt install -y zsh git wget || sudo pacman -S zsh git wget || sudo dnf install -y zsh git wget || sudo yum install -y zsh git wget || sudo brew install git zsh wget || pkg install git zsh wget ; then
-        echo -e "zsh wget and git Installed\n"
+    if sudo apt install -y zsh git wget xclip || sudo pacman -S zsh git wget xclip || sudo dnf install -y zsh git wget xclip || sudo yum install -y zsh git wget xclip || sudo brew install git zsh wget xc>
+        echo -e "zsh wget, xclip and git Installed\n"
     else
-        echo -e "Please install the following packages first, then try again: zsh git wget \n" && exit
+        echo -e "Please install the following packages first, then try again: zsh git wget xclip \n" && exit
     fi
 fi
 
