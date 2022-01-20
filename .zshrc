@@ -135,8 +135,8 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
 alias x="exit"
-alias "copy=xclip"
-alias "paste=xclip -o"
+alias copy="xclip"
+alias paste="xclip -o"
 
 
 # CUSTOM FUNCTIONS
