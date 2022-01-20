@@ -70,6 +70,7 @@ plugins=(
     screen
     systemd
     web-search
+    encode64
     # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
     zsh-syntax-highlighting
     )
@@ -134,6 +135,8 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
 alias x="exit"
+alias "copy=xclip"
+alias "paste=xclip -o"
 
 
 # CUSTOM FUNCTIONS
