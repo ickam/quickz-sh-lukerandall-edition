@@ -72,15 +72,6 @@ else
 fi
 
 
-# INSTALL FONTS
-
-echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono\n"
-
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-
-fc-cache -fv ~/.fonts
 
 if [ -d ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k ]; then
     cd ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k && git pull
