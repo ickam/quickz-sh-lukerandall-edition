@@ -9,26 +9,7 @@ export ZSH=$HOME/.config/ezsh/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
-
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs ram load rvm time)
-
-# more prompt elements that are suggested
-# (public_ip docker_machine pyenv nvm)          https://github.com/bhilburn/powerlevel9k#prompt-customization
-# Note: using public_ip is cool but when connection is down prompt waits for 10-20 seconds
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon context dir vcs)
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+ZSH_THEME="lukerandall"
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -149,7 +130,7 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
-alias e="exit"
+alias x="exit"
 
 
 # CUSTOM FUNCTIONS
@@ -208,4 +189,11 @@ corona() {
     else
         curl "https://corona-stats.online"
     fi
+}
+
+rand100() {
+curl https://www.random.org/integers/\?num\=1\&min\=1\&max\=100\&col\=1\&base\=10\&format\=plain\&rnd\=new &&
+}
+rand4() {
+curl  https://www.random.org/integers/\?num\=10\&min\=1\&max\=4\&col\=1\&base\=10\&format\=plain\&rnd\=new
 }
