@@ -10,85 +10,108 @@ else
     fi
 fi
 
-
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d"); then # backup .zshrc
     echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
 fi
 
+echo -e "The setup will be installed in '~/.config/ezsh'\n"
+echo -e "Place your personal zshrc config files under '~/.config/ezsh/zshrc/'\n"
+mkdir -p ~/.config/ezsh/zshrc
+
+if [ -d ~/.quickzsh ]; then
+    echo -e "\n PREVIOUS SETUP FOUND AT '~/.quickzsh'. PLEASE MANUALLY MOVE ANY FILES YOU'D LIKE TO '~/.config/ezsh' \n"
+fi
 
 echo -e "Installing oh-my-zsh\n"
-if [ -d ~/.oh-my-zsh ]; then
+if [ -d ~/.config/ezsh/oh-my-zsh ]; then
     echo -e "oh-my-zsh is already installed\n"
+    git -C ~/.config/ezsh/oh-my-zsh remote set-url origin https://github.com/ohmyzsh/ohmyzsh.git
+elif [ -d ~/.oh-my-zsh ]; then
+    echo -e "oh-my-zsh in already installed at '~/.oh-my-zsh'. Moving it to '~/.config/ezsh/oh-my-zsh'"
+    export ZSH="$HOME/.config/ezsh/oh-my-zsh"
+    mv ~/.oh-my-zsh ~/.config/ezsh/oh-my-zsh
+    git -C ~/.config/ezsh/oh-my-zsh remote set-url origin https://github.com/ohmyzsh/ohmyzsh.git
 else
-    git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.config/ezsh/oh-my-zsh
 fi
 
 cp -f .zshrc ~/
+cp -f ezshrc.zsh ~/.config/ezsh/
 
+mkdir -p ~/.config/ezsh/zshrc         # PLACE YOUR ZSHRC CONFIGURATIONS OVER THERE
+mkdir -p ~/.cache/zsh/                # this will be used to store .zcompdump zsh completion cache files which normally clutter $HOME
 
-mkdir -p ~/.quickzsh       # external plugins, things, will be instlled in here
-
-if [ -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then
-    cd ~/.oh-my-zsh/plugins/zsh-autosuggestions && git pull
-else
-    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+if [ -f ~/.zcompdump ]; then
+    mv ~/.zcompdump* ~/.cache/zsh/
 fi
 
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-    cd ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && git pull
+if [ -d ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions ]; then
+    cd ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions && git pull
 else
-    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/ezsh/oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
-    cd ~/.oh-my-zsh/custom/plugins/zsh-completions && git pull
+if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+    cd ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting && git pull
 else
-    git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search ]; then
-    cd ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search && git pull
+if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-completions ]; then
+    cd ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-completions && git pull
 else
-    git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+    git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-completions
 fi
 
-
-if [ -d ~/.quickzsh/fzf ]; then
-    cd ~/.quickzsh/fzf && git pull
-    ~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
+if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-history-substring-search ]; then
+    cd ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-history-substring-search && git pull
 else
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.quickzsh/fzf
-    ~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
+    git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search ~/.config/ezsh/oh-my-zsh/custom/plugins/zsh-history-substring-search
 fi
 
-if [ -d ~/.quickzsh/marker ]; then
-    cd ~/.quickzsh/marker && git pull
+if [ -d ~/.~/.config/ezsh/fzf ]; then
+    cd ~/.config/ezsh/fzf && git pull
+    ~/.config/ezsh/fzf/install --all --key-bindings --completion --no-update-rc
 else
-    git clone --depth 1 https://github.com/pindexis/marker ~/.quickzsh/marker
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/ezsh/fzf
+    ~/.config/ezsh/fzf/install --all --key-bindings --completion --no-update-rc
 fi
 
-if ~/.quickzsh/marker/install.py; then
+if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/k ]; then
+    cd ~/.config/ezsh/oh-my-zsh/custom/plugins/k && git pull
+else
+    git clone --depth 1 https://github.com/supercrabtree/k ~/.config/ezsh/oh-my-zsh/custom/plugins/k
+fi
+
+if [ -d ~/.config/ezsh/marker ]; then
+    cd ~/.config/ezsh/marker && git pull
+else
+    git clone --depth 1 https://github.com/jotyGill/marker ~/.config/ezsh/marker
+fi
+
+if ~/.config/ezsh/marker/install.py; then
     echo -e "Installed Marker\n"
 else
     echo -e "Marker Installation Had Issues\n"
 fi
 
-# if git clone --depth 1 https://github.com/todotxt/todo.txt-cli.git ~/.quickzsh/todo; then :
+# if git clone --depth 1 https://github.com/todotxt/todo.txt-cli.git ~/.config/ezsh/todo; then :
 # else
-#     cd ~/.quickzsh/todo && git fetch --all && git reset --hard origin/master
+#     cd ~/.config/ezsh/todo && git fetch --all && git reset --hard origin/master
 # fi
-# mkdir ~/.quickzsh/todo/bin ; cp -f ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh # cp todo.sh to ./bin so only it is included in $PATH
+# mkdir ~/.config/ezsh/todo/bin ; cp -f ~/.config/ezsh/todo/todo.sh ~/.config/ezsh/todo/bin/todo.sh # cp todo.sh to ./bin so only it is included in $PATH
 # #touch ~/.todo/config     # needs it, otherwise spits error , yeah a bug in todo
-# ln -s ~/.quickzsh/todo ~/.todo
-if [ ! -L ~/.quickzsh/todo/bin/todo.sh ]; then
-    echo -e "Installing todo.sh in ~/.quickzsh/todo\n"
-    mkdir -p ~/.quickzsh/todo/bin
-    wget -q --show-progress "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz" -P ~/.quickzsh/
-    tar xvf ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz -C ~/.quickzsh/todo --strip 1 && rm ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz
-    ln -s ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh     # so only .../bin is included in $PATH
-    ln -s ~/.quickzsh/todo/todo.cfg ~/.todo.cfg     # it expects it there or ~/todo.cfg or ~/.todo/config
+# ln -s ~/.config/ezsh/todo ~/.todo
+if [ ! -L ~/.config/ezsh/todo/bin/todo.sh ]; then
+    echo -e "Installing todo.sh in ~/.config/ezsh/todo\n"
+    mkdir -p ~/.config/ezsh/bin
+    mkdir -p ~/.config/ezsh/todo
+    wget -q --show-progress "https://github.com/todotxt/todo.txt-cli/releases/download/v2.12.0/todo.txt_cli-2.12.0.tar.gz" -P ~/.config/ezsh/
+    tar xvf ~/.config/ezsh/todo.txt_cli-2.12.0.tar.gz -C ~/.config/ezsh/todo --strip 1 && rm ~/.config/ezsh/todo.txt_cli-2.12.0.tar.gz
+    ln -s -f ~/.config/ezsh/todo/todo.sh ~/.config/ezsh/bin/todo.sh     # so only .../bin is included in $PATH
+    ln -s -f ~/.config/ezsh/todo/todo.cfg ~/.todo.cfg     # it expects it there or ~/todo.cfg or ~/.todo/config
 else
-    echo -e "todo.sh is already instlled in ~/.quickzsh/todo/bin/\n"
+    echo -e "todo.sh is already instlled in ~/.config/ezsh/todo/bin/\n"
 fi
 
 if [[ $1 == "--cp-hist" ]] || [[ $1 == "-c" ]]; then
@@ -107,7 +130,6 @@ if [[ $1 == "--cp-hist" ]] || [[ $1 == "-c" ]]; then
 else
     echo -e "\nNot copying bash_history to zsh_history, as --cp-hist or -c is not supplied\n"
 fi
-
 
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
