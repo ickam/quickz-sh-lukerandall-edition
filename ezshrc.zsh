@@ -96,8 +96,7 @@ alias update="softwareupdate --all --install -R"
 # CUSTOM FUNCTIONS
 # cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
 # example 'cheat tar'
-# for language specific question supply 2 args first for language, second 
-as the question
+# for language specific question supply 2 args first for language, second as the question
 # example: cheat python3 execute external program
 cheat() {
     if [ "$2" ]; then
