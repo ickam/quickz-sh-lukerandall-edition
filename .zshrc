@@ -31,3 +31,6 @@ source $ZSH/oh-my-zsh.sh
 export FZF_DEFAULT_OPS="--extended"
 
 alias k="k -h"       # show human readable file sizes, in kb, mb etc
+
+# Created by `pipx`
+export PATH="$PATH:/home/ick/.local/bin"
