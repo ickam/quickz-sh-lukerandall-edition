@@ -93,6 +93,9 @@ alias mdl="megatools dl"
 alias xcopy="rsync --bwlimit=15360"
 alias bat="pmset -g batt" #macOS only
 alias update="softwareupdate --all --install -R" 
+alias audiox='yt-dlp -x --audio-format mp3 "$1"'
+alias jdhead='java -Djava.awt.headless=true -jar JDownloader.jar'
+
 # CUSTOM FUNCTIONS
 # cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
 # example 'cheat tar'
@@ -178,4 +181,8 @@ ffmpeg \
 }
 convert() {
 ebook-convert "$1" "$2" --remove-paragraph-spacing
+}
+
+bulkrm() {
+find . -name "$1" -type f -delete
 }
