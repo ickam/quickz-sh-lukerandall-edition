@@ -108,40 +108,13 @@ cheat() {
         curl "https://cheat.sh/$1"
     fi
 }
-# Matrix screen saver! will run if you have installed "cmatrix"
-# TMOUT=900
-# TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
-speedtest() {
-    curl -s 
-https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
-}
-dadjoke() {
-    curl https://icanhazdadjoke.com
-}
-# Find dictionary definition
-dict() {
-    if [ "$3" ]; then
-        curl "dict://dict.org/d:$1 $2 $3"
-    elif [ "$2" ]; then
-        curl "dict://dict.org/d:$1 $2"
-    else
-        curl "dict://dict.org/d:$1"
-    fi
-}
+
 # Find geo info from IP
 ipgeo() {
     # Specify ip or your ip will be used
    curl "http://ipinfo.io/"
 }
-# Show covid-19 spread stats
-corona() {
-    # Specify country otherwise shows stats for all
-    if [ "$1" ]; then
-        curl "https://corona-stats.online/$1"
-    else
-        curl "https://corona-stats.online"
-    fi
-}
+
 rand100() {
 curl https://www.random.org/integers/\?num\=1\&min\=1\&max\=100\&col\=1\&base\=10\&format\=plain\&rnd\=new &&
 }
