@@ -91,7 +91,7 @@ alias napisy="subliminal --opensubtitles ickam89@gmail.com
 'zxNvEZL36VQ#Eq' download -l pl"
 alias mdl="megatools dl"
 alias xcopy="rsync --bwlimit=15360"
-alias bat="pmset -g batt" #macOS only
+alias batt="pmset -g batt" #macOS only
 alias update="softwareupdate --all --install -R" 
 alias audiox='yt-dlp -x --audio-format mp3 "$1"'
 alias jdhead='java -Djava.awt.headless=true -jar JDownloader.jar'
