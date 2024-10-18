@@ -60,7 +60,8 @@ plugins=(
     #systemd
     web-search
     extract
-    encode64
+    z
+
 )
   
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -83,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
-alias x=
+alias x="extract"
 alias taskman="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head"
 alias subs="subliminal --opensubtitles ickam89@gmail.com 'zxNvEZL36VQ#Eq' 
 download -l en"
@@ -95,6 +96,8 @@ alias batt="pmset -g batt" #macOS only
 alias update="softwareupdate --all --install -R" 
 alias audiox='yt-dlp -x --audio-format mp3 "$1"'
 alias jdhead='java -Djava.awt.headless=true -jar JDownloader.jar'
+alias cycles="system_profiler SPPowerDataType | grep "Cycle Count" | awk '{print $3}'"
+alias code="open -a VSCodium"
 
 # CUSTOM FUNCTIONS
 # cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
