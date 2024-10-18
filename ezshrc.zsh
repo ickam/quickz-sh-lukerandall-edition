@@ -60,7 +60,8 @@ plugins=(
     #systemd
     web-search
     extract
-    encode64
+    z
+
 )
   
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -83,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
-alias x=
+alias x="extract"
 alias taskman="ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head"
 alias subs="subliminal --opensubtitles ickam89@gmail.com 'zxNvEZL36VQ#Eq' 
 download -l en"
