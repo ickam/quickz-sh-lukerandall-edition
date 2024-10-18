@@ -96,6 +96,8 @@ alias batt="pmset -g batt" #macOS only
 alias update="softwareupdate --all --install -R" 
 alias audiox='yt-dlp -x --audio-format mp3 "$1"'
 alias jdhead='java -Djava.awt.headless=true -jar JDownloader.jar'
+alias cycles="system_profiler SPPowerDataType | grep "Cycle Count" | awk '{print $3}'"
+alias code="open -a VSCodium"
 
 # CUSTOM FUNCTIONS
 # cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
