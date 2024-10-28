@@ -99,6 +99,7 @@ alias jdhead='java -Djava.awt.headless=true -jar JDownloader.jar'
 alias cycles="system_profiler SPPowerDataType | grep "Cycle Count" | awk '{print $3}'"
 alias code="open -a VSCodium"
 alias watts="system_profiler SPPowerDataType | grep "Wattage" | awk '{print $3}"
+alias battcap="system_profiler SPPowerDataType | grep "Maximum Capacity" | awk '{print $3}'" #battery capacity percentage
 
 # CUSTOM FUNCTIONS
 # cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
